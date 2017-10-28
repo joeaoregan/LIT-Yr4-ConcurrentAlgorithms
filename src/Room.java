@@ -22,7 +22,11 @@ public class Room {
 		booked = false;
 	}	
 	
-	public boolean isDayBooked(int day) {
+	public boolean getBooked(int day) {
 		return bookedForDay[day];				// Is the room booked for a given day
+	}
+	
+	public void setBooked(int day) {
+		bookedForDay[day] = true;
 	}
 }
