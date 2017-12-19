@@ -1,3 +1,5 @@
+import java.util.Vector;
+
 /*
     Hotel Room Booking System.
     
@@ -11,22 +13,27 @@
 
 public class Room {
 	public int roomNum;
-	boolean booked;
+	//boolean booked;
 	
-	boolean[] bookedForDay = new boolean[30];	// 30 days - array position = day number, true for booked, false for available
+	boolean[] bookedForDay = new boolean[30];			// 30 days - array position = day number, true for booked, false for available
+	//Vector<Integer> bookedForDays = new Vector<Integer>();	// List of days the room is booked for	
 	
 	// constructor
 	public Room(int roomNumber) {
 		roomNum = roomNumber;
 		//int[] daysBooked;
-		booked = false;
+		//booked = false;
 	}	
 	
-	public boolean getBooked(int day) {
-		return bookedForDay[day];				// Is the room booked for a given day
+	public boolean GetBooked(int day) {
+		return bookedForDay[day];						// Is the room booked for a given day
 	}
 	
-	public void setBooked(int day) {
-		bookedForDay[day] = true;
+	public void SetBooked(int day) {
+		bookedForDay[day] = true;						// Set a day as booked
+	}
+	
+	public void UnbookDay(int day) {
+		bookedForDay[day] = false;						// Set a day as not booked
 	}
 }

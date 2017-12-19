@@ -1,0 +1,10 @@
+# Joe O'Regan
+# 19/12/2017
+
+!/.settings
+!/bin
+!.classpath
+!.project
+
+
+/src/*

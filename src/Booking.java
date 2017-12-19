@@ -19,4 +19,6 @@ public class Booking {
 		days = d;
 		roomNum = r;
 	}
+	
+	
 }
