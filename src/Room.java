@@ -15,8 +15,8 @@ public class Room {
 	public int roomNum;
 	//boolean booked;
 	
-	boolean[] bookedForDay = new boolean[30];			// 30 days - array position = day number, true for booked, false for available
-	//Vector<Integer> bookedForDays = new Vector<Integer>();	// List of days the room is booked for	
+	boolean[] bookedForDay = new boolean[30];				// 30 days - array position = day number, true for booked, false for available
+	//Vector<Integer> bookedForDays = new Vector<Integer>();// List of days the room is booked for	
 	
 	// constructor
 	public Room(int roomNumber) {
@@ -26,14 +26,14 @@ public class Room {
 	}	
 	
 	public boolean GetBooked(int day) {
-		return bookedForDay[day];						// Is the room booked for a given day
+		return bookedForDay[day];							// Is the room booked for a given day
 	}
 	
 	public void SetBooked(int day) {
-		bookedForDay[day] = true;						// Set a day as booked
+		bookedForDay[day] = true;							// Set a day as booked
 	}
 	
 	public void UnbookDay(int day) {
-		bookedForDay[day] = false;						// Set a day as not booked
+		bookedForDay[day] = false;							// Set a day as not booked
 	}
 }
