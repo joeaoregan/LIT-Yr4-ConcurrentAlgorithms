@@ -38,5 +38,6 @@ public class Room {
 	
 	public void UnbookDay(int day) {
 		bookedForDay[day] = false;							// Set a day as not booked
+		System.out.println("Day " + day + " unbooked");
 	}
 }

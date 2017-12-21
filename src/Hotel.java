@@ -77,7 +77,7 @@ public class Hotel {
     		
     		for (int j = 0; j < 30; j++)																	// Day
     			for (int k = 0; k < Array.getLength(days); k++)												// Booking day
-	    			if (rooms[i].roomNum == roomNum && rooms[i].GetBooked(j) ) {															// If booked on this day already
+	    			if (rooms[i].roomNum == roomNum && rooms[i].GetBooked(j) ) {							// If booked on this day already
 	    				if (j == days[k]) 
 	    					//System.out.println("roomBooked(): Room " + rooms[i].roomNum + " is booked already on day " + j);
 	    					if (unavailableDays == "") unavailableDays += j;								// Don't add comma if empty
@@ -182,20 +182,55 @@ public class Hotel {
 	 * booking reference becomes unbooked for the days of the booking. 
 	 * If there is no booking with the specified reference throws NoSuchBookingException
 	*/
-	void cancelBooking(String bookingRef) throws NoSuchBookingException {
-		// EXTENDED SPECIFICATION
-		if(checkBookingOnList(bookingRef))
-			throw new NoSuchBookingException("This booking ref does not exist: " + bookingRef);
-		else
-			System.out.println("Implement cancelling this booking");
+	void cancelBooking(String bookingRef) throws NoSuchBookingException {		
+		if(!checkBookingOnList(bookingRef))
+			throw new NoSuchBookingException(bookingRef);
+		else {
+			//System.out.println("Implement cancelling this booking");	// test
+			//int[] day = bookingList.get(bookingRef).days;
+			//int room = bookingList.get(bookingRef).roomNum;
+
+			System.out.println("Room: " + bookingList.get(bookingRef).roomNum + ": ");
+			for (int i = 0; i < Array.getLength(bookingList.get(bookingRef).days); i++) {						// days
+				//rooms[room].UnbookDay(day[i]);
+				//System.out.println("Room: " + bookingList.get(bookingRef).roomNum + ": ");
+				//rooms[bookingList.get(bookingRef).roomNum].UnbookDay(bookingList.get(bookingRef).days[i]);
+				System.out.println("Cancelling day: " + bookingList.get(bookingRef).days[i]);
+				//rooms[j].SetBooked(days[i]);
+				for (int j = 0; j < Array.getLength(rooms); j++) {												// rooms
+					if (rooms[j].roomNum == bookingList.get(bookingRef).roomNum) {																// Find the room in the hotels list of rooms
+						System.out.println("Room to unbook: " + rooms[j].roomNum);
+			
+						//for (int k = 0; k < Array.getLength(bookingList.get(bookingRef).days); k++) {											// For each day that needs to be booked										
+							rooms[j].UnbookDay(bookingList.get(bookingRef).days[i]);															// Set the room as booked
+							//if(rooms[j].GetBooked(days[i])) System.out.println("bookRoom(): Room " + rooms[j].roomNum + " has been booked for day " + days[i]);
+						//}
+					}
+				}			
+			}
+			
+			bookingList.remove(bookingRef);
+			System.out.println("Booking ref: " +bookingRef+" removed from system");
+		}
+		
+		/*
+		try {
+			if(!checkBookingOnList(bookingRef))
+				throw new NoSuchBookingException(bookingRef);
+		} catch (NoSuchBookingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			//System.out.println("NoSuchBookingException works\n");
+		}
+		*/
 	}
 	
 	void displayAllRoomBookings(String name) {
-
+		String booked = "";
     	System.out.println("Hotel " + name + " All Bookings:");
     	
     	for (int i = 0; i < Array.getLength(rooms); i++) {					// Check the room
-    		String booked = "";
+    		booked = "";													// Reset for each room
     		for (int j = 0; j < 30; j++)									// Check the day
     			if (rooms[i].GetBooked(j))  {
     				//System.out.println("Main: Room " + rooms[i].roomNum + " is booked on day " + j);  
@@ -205,6 +240,8 @@ public class Hotel {
     		
 	    	if (booked != "") System.out.println("Days(s) " + booked + " are booked for room " + rooms[i].roomNum);
     	}
+    	
+    	if (booked == "") System.out.println("No bookings");
 	}
 	
     public static void main(String [] args) {
@@ -236,40 +273,63 @@ public class Hotel {
     	
     	// Check for unique booking references
     	System.out.println("Test: unique booking entered");
-    	hotel2.bookRoom("Ref2", daystobook2, 2);									// Try booking room 2 for days 3,4,5,6 - Should work
+    	hotel2.bookRoom("Ref2", daystobook2, 2);									// Try booking room 2 for days 3,4,5,6 - Should fail on booking ref "Ref2" repeating
 
-    	try {
-			hotel2.cancelBooking("RandomReferenceNumber");
-		} catch (NoSuchBookingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("Main: error");
-		}
+    	
+    	
     	
     	// Check a booking exists
-    	if(hotel2.checkBookingOnList("Ref2")) System.out.println("Check Booking: yes for Ref2");
+    	if(hotel2.checkBookingOnList("Ref2")) 
+    		System.out.println("Check Booking: yes for Ref2");						// Should have a booking ref "Ref2"
+    	else
+    		System.out.println("Check Booking: No for Ref2");
+
     	if(hotel2.checkBookingOnList("Refx")) 
     		System.out.println("Check Booking: Yes for Refx");
     	else
-    		System.out.println("Check Booking: No for Refx");
+    		System.out.println("Check Booking: No for Refx");						// Should not have a booking ref "Refx"
 
     	hotel2.displayAllRoomBookings("2");
-    	/*
-    	for (int i = 0; i < Array.getLength(hotel2.rooms); i++) 					// show the 
-    		for (int j = 0; j < 30; j++)											// check the day
-    			if (hotel2.rooms[i].GetBooked(j)) 
-    				System.out.println("Main: Room " + hotel2.rooms[i].roomNum + " is booked on day " + j);
-    	*/
+    	
+    	
     	System.out.println("\nBooking 3:");
-    	int[] daystobook3 = {1,3,5,7};												// Try booking room 2 for days 3,5,7 - Should fail
+    	int[] daystobook3 = {1,3,5,7};												// Try booking room 2 for days 1,3,5,7 - Should fail
     	hotel2.bookRoom("Ref3", daystobook3, 2);
 
     	hotel2.displayAllRoomBookings("2");
+
     	
+    	/*
+    	try {
+			hotel2.cancelBooking("RandomReferenceNumber");							// Should fail on booking reference
+		} catch (NoSuchBookingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("NoSuchBookingException works\n");
+		}
+    	*/
+    	
+    	try {
+			hotel2.cancelBooking("Ref2");											// Should be fine on booking reference "Ref2"
+		} catch (NoSuchBookingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("NoSuchBookingException works\n");
+		}
     	
     	System.out.println("\nBooking 4:");
-    	hotel2.bookRoom("Ref4", daystobook3, 8);
+    	hotel2.bookRoom("Ref4", daystobook3, 8);									// Try booking room 8 for days 1,3,5,7 - Should succeed
     	
+    	hotel2.displayAllRoomBookings("2");
+    	
+    	try {
+			hotel2.cancelBooking("Ref4");											// Should be fine on booking reference "Ref2"
+		} catch (NoSuchBookingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("NoSuchBookingException works\n");
+		}
+
     	hotel2.displayAllRoomBookings("2");
     	
     }
