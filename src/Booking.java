@@ -23,7 +23,7 @@ public class Booking {
         // When you print out instance of A, value of its foo field will be printed out
         return displayBooking;
     }
-    		
+ 	
 	// booking reference, days, room number
 	public Booking (String br, int[] d, int r) {
 		bookingRef = br;
