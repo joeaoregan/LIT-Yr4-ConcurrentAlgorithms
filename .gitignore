@@ -1,10 +1,9 @@
 # Joe O'Regan
-# 19/12/2017
+# 11/01/2018
 
-!/.settings
-!/bin/
-!.classpath
-!.project
+!/ConcurrentAlgorithmsCA1/*
+!/ConcurrentAlgorithmsCA1Extended/*
 
-
-/src/*
+# Ignore
+.classpath
+.project

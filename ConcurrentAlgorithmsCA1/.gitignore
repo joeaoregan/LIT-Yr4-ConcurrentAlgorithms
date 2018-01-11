@@ -1,0 +1,13 @@
+# Joe O'Regan
+# 11/01/2018
+
+# Add
+!/src/*
+
+# Ignore
+.settings
+/bin/
+.classpath
+.project
+
+

@@ -39,6 +39,7 @@ public class Booking {
 		displayBooking = "Booking Ref:\t" + br + "\nDays:\t\t";
 		for(i = 0; i < Array.getLength(d) - 1; i++)
 			displayBooking += d[i] + ", ";
-		displayBooking += d[i] + "\nRoom Number:\t" + r + "\n";
+		//displayBooking += d[i] + "\nRoom Number:\t" + r + "\n";
+		displayBooking += d[i] + "\nRoom Number:\t" + r;
 	}
 }
