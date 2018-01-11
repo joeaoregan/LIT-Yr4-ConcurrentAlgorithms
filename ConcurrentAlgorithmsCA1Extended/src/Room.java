@@ -1,15 +1,18 @@
-//import java.util.Vector;
-
 /*
-    Hotel Room Booking System.
+    Hotel Room Booking System (Extended).
     
     Room.java
     
     Joe O'Regan
     K00203642
     
-    26/10/2017
+    11/01/2018
+    
+    A boolean array of rooms, is used to indicate if a room is booked
+    or not using the day value entered as an index
 */
+
+//import java.util.Vector;
 
 public class Room {
 	public int roomNum;
@@ -38,6 +41,6 @@ public class Room {
 	
 	public void UnbookDay(int day) {
 		bookedForDay[day] = false;							// Set a day as not booked
-		System.out.println("Day " + day + " unbooked");
+		System.out.println("Room->UnbookDay(): Day " + day + " unbooked");
 	}
 }

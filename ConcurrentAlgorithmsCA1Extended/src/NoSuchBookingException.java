@@ -1,12 +1,14 @@
 /*
-    Hotel Room Booking System.
+    Hotel Room Booking System (Extended).
     
     NoSuchBookingException.java
     
     Joe O'Regan
     K00203642
     
-    26/10/2017
+    11/01/2018
+    
+    File included as part of assignment
 */
 
 @SuppressWarnings("serial")

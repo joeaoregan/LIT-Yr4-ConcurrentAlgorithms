@@ -1,5 +1,3 @@
-//import java.util.Vector;
-
 /*
     Hotel Room Booking System.
     
@@ -10,6 +8,8 @@
     
     26/10/2017
 */
+
+//import java.util.Vector;
 
 public class Room {
 	public int roomNum;
@@ -38,6 +38,6 @@ public class Room {
 	
 	public void UnbookDay(int day) {
 		bookedForDay[day] = false;							// Set a day as not booked
-		System.out.println("Day " + day + " unbooked");
+		System.out.println("Room->UnbookDay(): Day " + day + " unbooked");
 	}
 }
