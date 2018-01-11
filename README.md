@@ -8,6 +8,8 @@
 
 
 
+Write a Java Hotel class which has methods to book rooms and check room bookings which could be called concurrently by multiple threads. Making sure there is no interference between threads (for example, no doulble-bookings) and at the same time maximum concurrency is allowed in the implementation of the class.
+
 
 
 ---
@@ -18,10 +20,10 @@
 
 
 
+
 | No. | File        | Description |
 
 | --- | ------------- |-------------|
-
 | 1 | **Booking.java** | Create a booking for a room |
 
 | 2 | **Hotel.java** | Construct a hotel with specified room numbers |

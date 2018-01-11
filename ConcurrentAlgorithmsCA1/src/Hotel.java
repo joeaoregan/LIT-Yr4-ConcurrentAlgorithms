@@ -109,7 +109,10 @@ public class Hotel {
     	
 		return booked;																						// booked = false = room available
 	}
-		
+
+	/*
+	 * Check that the room number exists for the Hotel
+	 */
 	boolean roomExistsInHotel(int roomNum) {
 		boolean roomExists = false;
 		
@@ -282,7 +285,10 @@ public class Hotel {
 		}
 		*/
 	}
-	
+
+	/*
+	 * Display all room bookings for a hotel
+	 */
 	void displayAllRoomBookings(String name) {
 		String booked = "";
     	System.out.println("Hotel " + name + " All Bookings:");

@@ -32,7 +32,11 @@ public class Booking {
     public String toString() {        
         return displayBooking;									// When you print out instance of Booking, value of its displayBooking field will be printed out
     }
- 
+
+	/* 
+	 * Constructor:
+	 * Takes booking reference, days, room number parameters
+	 */
 	public Booking (String br, int[] d, int r) {
 		bookingRef = br;
 		days = d;

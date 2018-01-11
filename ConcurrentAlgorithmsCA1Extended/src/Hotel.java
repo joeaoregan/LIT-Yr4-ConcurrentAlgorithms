@@ -131,7 +131,9 @@ public class Hotel {
 		return booked;																						// booked = false = room available
 	}
 		
-	// Check the room has been set up for the hotel
+	/*
+	 *  Check the room has been set up for the hotel
+	 */
 	boolean roomExistsInHotel(int[] roomNums) {
 		boolean roomExists = false;																			// Initially the room exists before checking the array
 		//boolean roomExists =  true;																		// Initially the room exists before checking the array
@@ -295,12 +297,12 @@ public class Hotel {
 				//rooms[room].UnbookDay(day[i]);
 				//System.out.println("Room: " + bookingList.get(bookingRef).roomNum + ": ");
 				//rooms[bookingList.get(bookingRef).roomNum].UnbookDay(bookingList.get(bookingRef).days[i]);
-				//synchronized(bookingList) {																			// Lock access to the synchronized map
+				//synchronized(bookingList) {																		// Lock access to the synchronized map
 					System.out.println("Cancelling day: " + bookingList.get(bookingRef).days[i]);
 				//}
 				//rooms[j].SetBooked(days[i]);
 				for (int j = 0; j < Array.getLength(rooms); j++) {													// rooms
-					//synchronized(bookingList) {																		// Lock access to the synchronized map
+					//synchronized(bookingList) {																	// Lock access to the synchronized map
 						for (int k = 0; k < Array.getLength(bookingList.get(bookingRef).roomNums); k++) {
 							if (rooms[j].roomNum == bookingList.get(bookingRef).roomNums[k]) {						// Find the room in the hotels list of rooms
 								System.out.println("Room to unbook: " + rooms[j].roomNum);
@@ -334,13 +336,16 @@ public class Hotel {
 		*/
 	}
 	
+	/*
+	 * Display all room bookings for a hotel
+	 */
 	void displayAllRoomBookings(String name) {
 		String booked = "";
     	System.out.println("Hotel " + name + " All Bookings:");
     	
-    	for (int i = 0; i < Array.getLength(rooms); i++) {					// Check the room
-    		booked = "";													// Reset for each room
-    		for (int j = 0; j < 30; j++)									// Check the day
+    	for (int i = 0; i < Array.getLength(rooms); i++) {															// Check the room
+    		booked = "";																							// Reset for each room
+    		for (int j = 0; j < 30; j++)																			// Check the day
     			if (rooms[i].GetBooked(j))  {
     				//System.out.println("Main: Room " + rooms[i].roomNum + " is booked on day " + j);  
     				if (booked == "") booked += j;

@@ -30,15 +30,25 @@ public class Room {
 		//int[] daysBooked;
 		//booked = false;
 	}	
-	
+
+	/*
+	 * Return true if the room is booked for the day
+	 * Or false if the room is not booked for the day specified
+	 */
 	public boolean GetBooked(int day) {
 		return bookedForDay[day];							// Is the room booked for a given day
 	}
-	
+
+	/*
+	 * Mark a day as booked for the room
+	 */
 	public void SetBooked(int day) {
 		bookedForDay[day] = true;							// Set a day as booked
 	}
-	
+
+	/*
+	 * Mark a day as not booked
+	 */
 	public void UnbookDay(int day) {
 		bookedForDay[day] = false;							// Set a day as not booked
 		System.out.println("Room->UnbookDay(): Day " + day + " unbooked");
