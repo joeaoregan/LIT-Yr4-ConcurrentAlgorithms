@@ -1,9 +1,12 @@
-# Year 4 Games Design & Development 
+# Concurrent Algorithms
+## Joe O'Regan (K00203642)
+### Year 4 (2017/18), Semester 7
+#### BSc Computing (Games Design and Development)
+##### Limerick Institute of Technology
 
-# Concurrent Algorithms CA1
-### Joe O'Regan
+---
 
-### K00203642
+## Concurrent Algorithms CA1
 
 Write a Java Hotel class which has methods to book rooms and check room bookings which could be called concurrently by multiple threads. Making sure there is no interference between threads (for example, no doulble-bookings) and at the same time maximum concurrency is allowed in the implementation of the class.
 
